@@ -67,3 +67,12 @@ $ is-integer 555fff
 $ echo $?
 1
 ```
+
+I commonly use this to wrap CLI scripts/functions, so I can optionally pass an integer or use a default value. Like:
+
+```bash
+mm() {
+    # if $1 (first argument) is a number, use that, else use 10
+    some_command "${$(is-integer "$1"):-10}"
+}
+```
