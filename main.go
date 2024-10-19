@@ -18,12 +18,8 @@ func parseConfig() *IsIntegerConf {
 	for _, arg := range args {
 		if arg == "-d" {
 			conf.KeepFloat = true
-		} else {
-			conf.Input = arg
-		}
-	}
-	if conf.Input == "-h" || conf.Input == "--help" {
-		fmt.Println(`Usage: is-integer [-h] [-d] <number>
+		} else if arg == "-h" || arg == "--help" {
+			fmt.Println(`Usage: is-integer [-h] [-d] <number>
 	-d: keep decimal part of number
 	<number>: number to check if it is an integer
 
@@ -38,7 +34,10 @@ read -r somevar  # ask user for input
 if parsed="$(is-integer "$somevar")"; then
 	some_other_program "$parsed"
 fi`)
-		os.Exit(1)
+			os.Exit(1)
+		} else {
+			conf.Input = arg
+		}
 	}
 	return &conf
 }
