@@ -34,13 +34,13 @@ This uses the stdlib bigint package, so it can handle arbitrarily large integers
 Using `go install` to put it on your `$GOBIN`:
 
 ```
-go get github.com/seanbreckenridge/is-integer
+go get github.com/purarue/is-integer
 ```
 
 Manually:
 
 ```bash
-git clone https://github.com/seanbreckenridge/is-integer
+git clone https://github.com/purarue/is-integer
 cd ./is-integer
 go build .
 # copy binary somewhere on your $PATH
